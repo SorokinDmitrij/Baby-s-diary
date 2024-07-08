@@ -8,11 +8,11 @@ import UIKit
 
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
    
-    private var viewModel: [OnboardingPageViewModel] = [
-        OnboardingPageViewModel(imageName: "onboarding1", title: "Добро пожаловать!", description: "Наше приложение поможет вам улучшить качество сна вашего ребенка!"),
-        OnboardingPageViewModel(imageName: "onboarding2", title: "Сон", description: "С функцией отслеживания сна вы легко сможете добавлять и управлять временем сна вашего ребенка, записывая начало и окончание каждого периода. Это поможет следить за режимом и качеством сна, анализировать данные и улучшать привычки сна малыша."),
-        OnboardingPageViewModel(imageName: "onboarding3", title: "Статистика", description: "С функцией статистики сна вы сможете отслеживать и анализировать режимы сна ребенка, записывая данные. Делитесь этой статистикой с экспертами для профессиональных рекомендаций."),
-        OnboardingPageViewModel(imageName: "onboarding4", title: "Консультация", description: "С функцией консультации ИИ вы получите персонализированные рекомендации на основе статистики сна вашего ребенка. Используя алгоритмы OpenAI, приложение анализирует данные и предлагает решения для улучшения качества сна.")
+    private var viewModel: [OnboardingPageModel] = [
+        OnboardingPageModel(imageName: "onboarding1", title: "Добро пожаловать!", description: "Наше приложение поможет вам улучшить качество сна вашего ребенка!"),
+        OnboardingPageModel(imageName: "onboarding2", title: "Сон", description: "С функцией отслеживания сна вы легко сможете добавлять и управлять временем сна вашего ребенка, записывая начало и окончание каждого периода. Это поможет следить за режимом и качеством сна, анализировать данные и улучшать привычки сна малыша."),
+        OnboardingPageModel(imageName: "onboarding3", title: "Статистика", description: "С функцией статистики сна вы сможете отслеживать и анализировать режимы сна ребенка, записывая данные. Делитесь этой статистикой с экспертами для профессиональных рекомендаций."),
+        OnboardingPageModel(imageName: "onboarding4", title: "Консультация", description: "С функцией консультации ИИ вы получите персонализированные рекомендации на основе статистики сна вашего ребенка. Используя алгоритмы OpenAI, приложение анализирует данные и предлагает решения для улучшения качества сна.")
     ]
     
     private lazy var pageViewController: UIPageViewController = {
@@ -24,7 +24,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
 
        private lazy var pageControl: UIPageControl = {
            let pageControl = UIPageControl()
-           pageControl.translatesAutoresizingMaskIntoConstraints = false
            pageControl.numberOfPages = viewModel.count
            pageControl.currentPage = 0
            return pageControl
@@ -33,7 +32,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
        private lazy var skipButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Пропустить", for: .normal)
-           button.translatesAutoresizingMaskIntoConstraints = false
            button.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
            return button
        }()
@@ -46,32 +44,45 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
            button.tintColor = .white
            button.alpha = 0.5
            button.layer.cornerRadius = 7
-           button.translatesAutoresizingMaskIntoConstraints = false
            button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
            return button
        }()
 
-       override func viewDidLoad() {
-           super.viewDidLoad()
-
-           setupPageViewController()
-
-           view.addSubview(pageControl)
-           view.addSubview(skipButton)
-           view.addSubview(nextButton)
-
-           NSLayoutConstraint.activate([
-               pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-               pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
-               skipButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 280),
-               nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-               nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-100),
-               nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-           ])
-       }
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupPageViewController()
+    setupConstreint()
+        setup()
+       
+        func setup(){
+            view.addSubview(pageViewController.view)
+            view.addSubview(pageControl)
+            view.addSubview(skipButton)
+            view.addSubview(nextButton)
+        }
+        func setupConstreint(){
+            pageControl.translatesAutoresizingMaskIntoConstraints = false
+            skipButton.translatesAutoresizingMaskIntoConstraints = false
+            nextButton.translatesAutoresizingMaskIntoConstraints = false
+            pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+           
+            NSLayoutConstraint.activate([
+                pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+                pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
+                skipButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 280),
+                nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+                nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-100),
+                nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
+                pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+        }
+    }
        private func viewController(at index: Int) -> OnboardingPageViewController? {
            guard index >= 0 && index < viewModel.count else { return nil }
            let vc = OnboardingPageViewController()
@@ -85,16 +96,8 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
            }
 
            addChild(pageViewController)
-           view.addSubview(pageViewController.view)
+           
            pageViewController.didMove(toParent: self)
-
-           pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-           NSLayoutConstraint.activate([
-               pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
-               pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-               pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-               pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-           ])
        }
 
        // MARK: - UIPageViewControllerDataSource

@@ -4,12 +4,13 @@
 //
 //  Created by mac on 20.06.2024.
 //
-import UIKit
+import Foundation
 
-struct OnboardingPageViewModel {
-        let imageName: String
-        let title: String
-        let description: String
+class OnboardingPageViewModel {
+    
+    let model: OnboardingModel
+    
+    init(model: OnboardingModel) {
+        self.model = model
     }
-
-
+}
