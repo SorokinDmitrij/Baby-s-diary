@@ -7,4 +7,10 @@
 
 import UIKit
 
-
+class OnboardingPageView: UIView {
+    var viewModel: OnboardingPageModel? {
+        didSet {
+            // Setup view with viewModel
+        }
+    }
+}

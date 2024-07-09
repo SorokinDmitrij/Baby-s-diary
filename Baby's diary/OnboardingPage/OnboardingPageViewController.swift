@@ -74,15 +74,15 @@ class OnboardingPageViewController: UIViewController {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    
-                               contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                               contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                              contentStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                               imageView.heightAnchor.constraint(equalToConstant: 200),
-                               imageView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
-                               descriptionLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)
-                ])
+        
+        NSLayoutConstraint.activate([
+        contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        contentStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        imageView.heightAnchor.constraint(equalToConstant: 200),
+        imageView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
+        descriptionLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)
+        ])
     }
     
     private func bindViewModel() {
