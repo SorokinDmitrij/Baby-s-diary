@@ -7,7 +7,7 @@
 import UIKit
 
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    
+    weak var router: RouterProtocol?
     private var viewModel: [OnboardingPageModel] = [
         OnboardingPageModel(imageName: "onboarding1", title: "Добро пожаловать!", description: "Наше приложение поможет вам улучшить качество сна вашего ребенка!"),
         OnboardingPageModel(imageName: "onboarding2", title: "Сон", description: "С функцией отслеживания сна вы легко сможете добавлять и управлять временем сна вашего ребенка, записывая начало и окончание каждого периода. Это поможет следить за режимом и качеством сна, анализировать данные и улучшать привычки сна малыша."),
@@ -103,28 +103,8 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         }
         
         addChild(pageViewController)
-        
         pageViewController.didMove(toParent: self)
     }
-    
-    // MARK: - UIPageViewControllerDataSource
-    
-    /*func scrollViewDidScroll(_ scrollView: UIScrollView) {
-     guard let firstVC = pageViewController.viewControllers?.first as? OnboardingPageViewController,
-     let index = viewModel.firstIndex(where: { $0.title == firstVC.viewModel?.title }) else {
-     return
-     }
-     pageControl.currentPage = index
-     }
-     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-     guard let currentVC = pageViewController.viewControllers?.first as? OnboardingPageViewController,
-     let index = viewModel.firstIndex(where: { $0.title == currentVC.viewModel?.title }) else {
-     return
-     }
-     pageControl.currentPage = index
-     updateNextButtonTitle(for: index)
-     */
-    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let vc = viewController as? OnboardingPageViewController,
               let index = viewModel.firstIndex(where: { $0.title == vc.viewModel?.title }),
@@ -143,8 +123,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         return self.viewController(at: index + 1)
     }
     
-    // MARK: - UIPageViewControllerDelegate
-    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard completed,
               let currentVC = pageViewController.viewControllers?.first as? OnboardingPageViewController,
@@ -154,43 +132,47 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         pageControl.currentPage = index
         updateNextButtonTitle(for: index)
     }
-    
-    // MARK: - Button Actions
-    
     @objc private func skipButtonTapped() {
-        // Implement logic for skip button action
-        print("Skip button tapped")
-    }
-    @objc private func nextButtonTapped() {
-        guard let currentVC = pageViewController.viewControllers?.first as? OnboardingPageViewController,
-              let currentIndex = viewModel.firstIndex(where: { $0.title == currentVC.viewModel?.title }) else {
-            return
-        }
-        
-        let nextIndex = currentIndex + 1
-        
-        if nextIndex < viewModel.count, let nextVC = viewController(at: nextIndex) {
-            pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: { [weak self] _ in
-                self?.pageControl.currentPage = nextIndex
-                self?.updateNextButtonTitle(for: nextIndex)
-            })
-        } else {
-            
-            print("Finish button tapped")
-            
-        }
-    }
-    private func updateNextButtonTitle(for index: Int) {
-        let isLastPage = index == viewModel.count - 1
-        nextButton.setTitle(isLastPage ? "Завершить" : "Дальше", for: .normal)
-    }
-    @objc private func pageControlDidChange(_ sender: UIPageControl) {
-        let currentIndex = sender.currentPage
-        if let nextVC = viewController(at: currentIndex) {
-            pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: { [weak self] _ in
-                self?.pageControl.currentPage = currentIndex
-                self?.updateNextButtonTitle(for: currentIndex)
+            router?.presentConfirmationAlert("Вы уверены, что хотите пропустить презентацию?", message: nil, onConfirmation: { [weak self] in
+                self?.endOnboarding()
             })
         }
+        
+        private func endOnboarding() {
+            UserDefaults.standard.setValue(true, forKey: "hasCompletedOnboarding")
+            router?.showMainScreen()
+        }
+        
+        @objc private func nextButtonTapped() {
+            guard let currentVC = pageViewController.viewControllers?.first as? OnboardingPageViewController,
+                  let currentIndex = viewModel.firstIndex(where: { $0.title == currentVC.viewModel?.title }) else {
+                return
+            }
+            
+            let nextIndex = currentIndex + 1
+            
+            if nextIndex < viewModel.count, let nextVC = viewController(at: nextIndex) {
+                pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: { [weak self] _ in
+                    self?.pageControl.currentPage = nextIndex
+                    self?.updateNextButtonTitle(for: nextIndex)
+                })
+            } else {
+                endOnboarding()
+            }
+        }
+        
+        private func updateNextButtonTitle(for index: Int) {
+            let isLastPage = index == viewModel.count - 1
+            nextButton.setTitle(isLastPage ? "Завершить" : "Дальше", for: .normal)
+        }
+        
+        @objc private func pageControlDidChange(_ sender: UIPageControl) {
+            let currentIndex = sender.currentPage
+            if let nextVC = viewController(at: currentIndex) {
+                pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: { [weak self] _ in
+                    self?.pageControl.currentPage = currentIndex
+                    self?.updateNextButtonTitle(for: currentIndex)
+                })
+            }
+        }
     }
-}

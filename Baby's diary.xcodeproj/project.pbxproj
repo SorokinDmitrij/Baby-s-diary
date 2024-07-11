@@ -20,6 +20,13 @@
 		04579A0C2C29CEFD006BE024 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A0B2C29CEFD006BE024 /* OnboardingPageViewController.swift */; };
 		04579A0E2C2F346D006BE024 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A0D2C2F346D006BE024 /* OnboardingView.swift */; };
 		04579A1A2C33003D006BE024 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 04579A192C33003D006BE024 /* Localizable.xcstrings */; };
+		04579A6E2C3D9BFF006BE024 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A6D2C3D9BFF006BE024 /* Router.swift */; };
+		04579A702C3D9C37006BE024 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A6F2C3D9C37006BE024 /* MainTabBarController.swift */; };
+		04579A742C3DA2B1006BE024 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A732C3DA2B1006BE024 /* SleepViewController.swift */; };
+		04579A762C3DA2E3006BE024 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A752C3DA2E3006BE024 /* StatisticsViewController.swift */; };
+		04579A792C3DA636006BE024 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A782C3DA636006BE024 /* NavigationController.swift */; };
+		04579A7B2C3DA7FC006BE024 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A7A2C3DA7FC006BE024 /* RouterProtocol.swift */; };
+		04579A7E2C3DA866006BE024 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A7D2C3DA866006BE024 /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +47,13 @@
 		04579A152C32B1F9006BE024 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		04579A172C32B222006BE024 /* kk-KZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "kk-KZ"; path = "kk-KZ.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		04579A192C33003D006BE024 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		04579A6D2C3D9BFF006BE024 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		04579A6F2C3D9C37006BE024 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		04579A732C3DA2B1006BE024 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		04579A752C3DA2E3006BE024 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		04579A782C3DA636006BE024 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		04579A7A2C3DA7FC006BE024 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		04579A7D2C3DA866006BE024 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +87,12 @@
 		043691292C231C7100709110 /* Baby's diary */ = {
 			isa = PBXGroup;
 			children = (
+				04579A7C2C3DA832006BE024 /* UserDefaults */,
+				04579A772C3DA60C006BE024 /* NavigationController */,
+				04579A722C3DA28C006BE024 /* Statistics */,
+				04579A712C3DA282006BE024 /* Sleep */,
+				04579A6C2C3D9BB6006BE024 /* TabBarController */,
+				04579A6B2C3D9BA6006BE024 /* Router */,
 				04579A0F2C31B8FB006BE024 /* OnboardingPage */,
 				04579A022C29C106006BE024 /* Onboarding */,
 				045799FF2C27334C006BE024 /* Resource */,
@@ -122,6 +142,55 @@
 			path = OnboardingPage;
 			sourceTree = "<group>";
 		};
+		04579A6B2C3D9BA6006BE024 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				04579A6D2C3D9BFF006BE024 /* Router.swift */,
+				04579A7A2C3DA7FC006BE024 /* RouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		04579A6C2C3D9BB6006BE024 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				04579A6F2C3D9C37006BE024 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		04579A712C3DA282006BE024 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				04579A732C3DA2B1006BE024 /* SleepViewController.swift */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		04579A722C3DA28C006BE024 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				04579A752C3DA2E3006BE024 /* StatisticsViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		04579A772C3DA60C006BE024 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				04579A782C3DA636006BE024 /* NavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		04579A7C2C3DA832006BE024 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				04579A7D2C3DA866006BE024 /* UserDefaultsKeys.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +237,9 @@
 				"kk-KZ",
 			);
 			mainGroup = 0436911E2C231C7100709110;
+			packageReferences = (
+				04579A7F2C4032C5006BE024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 043691282C231C7100709110 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,16 +267,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04579A6E2C3D9BFF006BE024 /* Router.swift in Sources */,
 				04579A012C2733D0006BE024 /* OnboardingPageView.swift in Sources */,
+				04579A7B2C3DA7FC006BE024 /* RouterProtocol.swift in Sources */,
+				04579A702C3D9C37006BE024 /* MainTabBarController.swift in Sources */,
+				04579A7E2C3DA866006BE024 /* UserDefaultsKeys.swift in Sources */,
 				0436912F2C231C7100709110 /* OnboardingViewController.swift in Sources */,
 				0436912B2C231C7100709110 /* AppDelegate.swift in Sources */,
 				04579A0E2C2F346D006BE024 /* OnboardingView.swift in Sources */,
 				0436913F2C24766B00709110 /* OnboardingPageModel.swift in Sources */,
+				04579A792C3DA636006BE024 /* NavigationController.swift in Sources */,
+				04579A742C3DA2B1006BE024 /* SleepViewController.swift in Sources */,
 				04579A082C29CDCB006BE024 /* OnboardingViewModel.swift in Sources */,
 				043691412C24776100709110 /* OnboardingPageViewModel.swift in Sources */,
 				04579A0A2C29CE47006BE024 /* OnboardingModel.swift in Sources */,
 				0436912D2C231C7100709110 /* SceneDelegate.swift in Sources */,
 				04579A0C2C29CEFD006BE024 /* OnboardingPageViewController.swift in Sources */,
+				04579A762C3DA2E3006BE024 /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +498,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04579A7F2C4032C5006BE024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 0436911F2C231C7100709110 /* Project object */;
 }
