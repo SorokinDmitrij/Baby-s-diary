@@ -9,10 +9,10 @@ import UIKit
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     weak var router: RouterProtocol?
     private var viewModel: [OnboardingPageModel] = [
-        OnboardingPageModel(imageName: "onboarding1", title: "Добро пожаловать!", description: "Наше приложение поможет вам улучшить качество сна вашего ребенка!"),
-        OnboardingPageModel(imageName: "onboarding2", title: "Сон", description: "С функцией отслеживания сна вы легко сможете добавлять и управлять временем сна вашего ребенка, записывая начало и окончание каждого периода. Это поможет следить за режимом и качеством сна, анализировать данные и улучшать привычки сна малыша."),
-        OnboardingPageModel(imageName: "onboarding3", title: "Статистика", description: "С функцией статистики сна вы сможете отслеживать и анализировать режимы сна ребенка, записывая данные. Делитесь этой статистикой с экспертами для профессиональных рекомендаций."),
-        OnboardingPageModel(imageName: "onboarding4", title: "Консультация", description: "С функцией консультации ИИ вы получите персонализированные рекомендации на основе статистики сна вашего ребенка. Используя алгоритмы OpenAI, приложение анализирует данные и предлагает решения для улучшения качества сна.")
+        OnboardingPageModel(imageName: "onboarding1", title: String(localized:"Добро пожаловать!"), description: String(localized:"Наше приложение поможет вам улучшить качество сна вашего ребенка!")),
+        OnboardingPageModel(imageName: "onboarding2", title: String(localized:"Сон"), description: String(localized:"С функцией отслеживания сна вы легко сможете добавлять и управлять временем сна вашего ребенка, записывая начало и окончание каждого периода. Это поможет следить за режимом и качеством сна, анализировать данные и улучшать привычки сна малыша.")),
+        OnboardingPageModel(imageName: "onboarding3", title: String(localized:"Статистика"), description: String(localized:"С функцией статистики сна вы сможете отслеживать и анализировать режимы сна ребенка, записывая данные. Делитесь этой статистикой с экспертами для профессиональных рекомендаций.")),
+        OnboardingPageModel(imageName: "onboarding4", title: String(localized:"Консультация"), description: String(localized:"С функцией консультации ИИ вы получите персонализированные рекомендации на основе статистики сна вашего ребенка. Используя алгоритмы OpenAI, приложение анализирует данные и предлагает решения для улучшения качества сна."))
     ]
     
     private lazy var pageViewController: UIPageViewController = {
@@ -36,14 +36,14 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     private lazy var skipButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Пропустить", for: .normal)
+        button.setTitle(String(localized:"Пропустить"), for: .normal)
         button.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Дальше", for: .normal)
+        button.setTitle(String(localized:"Дальше"), for: .normal)
         button.clipsToBounds = true
         button.backgroundColor = .blue
         button.tintColor = .white
@@ -133,7 +133,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         updateNextButtonTitle(for: index)
     }
     @objc private func skipButtonTapped() {
-            router?.presentConfirmationAlert("Вы уверены, что хотите пропустить презентацию?", message: nil, onConfirmation: { [weak self] in
+        router?.presentConfirmationAlert(String(localized:"Вы уверены, что хотите пропустить презентацию?"), message: nil, onConfirmation: { [weak self] in
                 self?.endOnboarding()
             })
         }
@@ -163,7 +163,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         
         private func updateNextButtonTitle(for index: Int) {
             let isLastPage = index == viewModel.count - 1
-            nextButton.setTitle(isLastPage ? "Завершить" : "Дальше", for: .normal)
+            nextButton.setTitle(isLastPage ? String(localized:"Завершить") : String(localized:"Дальше"), for: .normal)
         }
         
         @objc private func pageControlDidChange(_ sender: UIPageControl) {

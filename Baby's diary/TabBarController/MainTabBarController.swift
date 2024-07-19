@@ -13,17 +13,18 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        
         let sleepViewController = SleepViewController()
         let statisticsViewController = StatisticsViewController()
         
-        sleepViewController.tabBarItem = UITabBarItem(title: "Sleep", image: UIImage(systemName: "powersleep"), tag: 0)
-        statisticsViewController.tabBarItem = UITabBarItem(title: "Statistics", image: UIImage(systemName: "chart.bar.fill"), tag: 1)
+        sleepViewController.tabBarItem = UITabBarItem(title:String(localized: "Sleep"), image: UIImage(systemName: "powersleep"), tag: 0)
+        statisticsViewController.tabBarItem = UITabBarItem(title: String(localized:"Statistics"), image: UIImage(systemName: "chart.bar.fill"), tag: 1)
         
         let sleepNavController = UINavigationController(rootViewController: sleepViewController)
         let statisticsNavController = UINavigationController(rootViewController: statisticsViewController)
         
         viewControllers = [sleepNavController, statisticsNavController]
-        tabBar.tintColor = .black
+        tabBar.tintColor = .white
         
         sleepViewController.router = router
         statisticsViewController.router = router

@@ -27,6 +27,7 @@
 		04579A792C3DA636006BE024 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A782C3DA636006BE024 /* NavigationController.swift */; };
 		04579A7B2C3DA7FC006BE024 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A7A2C3DA7FC006BE024 /* RouterProtocol.swift */; };
 		04579A7E2C3DA866006BE024 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A7D2C3DA866006BE024 /* UserDefaultsKeys.swift */; };
+		04579A822C444428006BE024 /* BabyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04579A812C444428006BE024 /* BabyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		04579A782C3DA636006BE024 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		04579A7A2C3DA7FC006BE024 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		04579A7D2C3DA866006BE024 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		04579A812C444428006BE024 /* BabyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		043691292C231C7100709110 /* Baby's diary */ = {
 			isa = PBXGroup;
 			children = (
+				04579A802C4443FC006BE024 /* BabyViewController */,
 				04579A7C2C3DA832006BE024 /* UserDefaults */,
 				04579A772C3DA60C006BE024 /* NavigationController */,
 				04579A722C3DA28C006BE024 /* Statistics */,
@@ -191,6 +194,14 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		04579A802C4443FC006BE024 /* BabyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04579A812C444428006BE024 /* BabyViewController.swift */,
+			);
+			path = BabyViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +290,7 @@
 				04579A792C3DA636006BE024 /* NavigationController.swift in Sources */,
 				04579A742C3DA2B1006BE024 /* SleepViewController.swift in Sources */,
 				04579A082C29CDCB006BE024 /* OnboardingViewModel.swift in Sources */,
+				04579A822C444428006BE024 /* BabyViewController.swift in Sources */,
 				043691412C24776100709110 /* OnboardingPageViewModel.swift in Sources */,
 				04579A0A2C29CE47006BE024 /* OnboardingModel.swift in Sources */,
 				0436912D2C231C7100709110 /* SceneDelegate.swift in Sources */,

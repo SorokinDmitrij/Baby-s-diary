@@ -8,21 +8,22 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     var router: RouterProtocol?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: scene)
-        _ = NavigationController()
-        if let window = window {
-                    router = Router(window: window)
-                    router?.start()
-                }
-        
-   
+        guard (scene is UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene as! UIWindowScene)
+       // if let window = window {
+         //           router = Router(window: window)
+          //          router?.start()
+          //      }
+        window?.rootViewController = AddBabyViewController()
+        window?.makeKeyAndVisible()
+        //window = UIWindow(frame: UIScreen.main.bounds)
+               // window?.rootViewController = UINavigationController(rootViewController: AddBabyViewController())
+              //  window?.makeKeyAndVisible()
+                
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
