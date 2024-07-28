@@ -24,6 +24,29 @@
         }
       }
     },
+    "Adding a baby..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adding a baby..."
+          }
+        },
+        "kk-KZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бала қосуда..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавляем малыша ...."
+          }
+        }
+      }
+    },
     "Baby's name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -115,25 +138,25 @@
         }
       }
     },
-    "Head circumference" : {
+    "Head circumference (in centimeters)" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Head circumference"
+            "value" : "Head circumference (in centimeters)"
           }
         },
         "kk-KZ" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Бас шеңбері"
+            "value" : "Бас шеңбері (сантиметрмен)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Обхват головы"
+            "value" : "Обхват головы (в сантиметрах)"
           }
         }
       }
@@ -144,19 +167,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Height"
+            "value" : "Height (in centimeters)"
           }
         },
         "kk-KZ" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Биіктігі"
+            "value" : "Биіктігі (сантиметрмен)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Рост"
+            "value" : "Рост (в сантиметрах)"
           }
         }
       }
@@ -414,6 +437,29 @@
         }
       }
     },
+    "Ready" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ready"
+          }
+        },
+        "kk-KZ" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дайын"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
     "Skip" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -483,25 +529,25 @@
         }
       }
     },
-    "Weight" : {
+    "Weight (in kilograms)" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Weight"
+            "value" : "Weight (in kilograms)"
           }
         },
         "kk-KZ" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Салмағы"
+            "value" : "Салмағы (килограмммен)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вес"
+            "value" : "Вес (в килограммах)"
           }
         }
       }
@@ -528,10 +574,13 @@
         }
       }
     },
-    "Вес" : {
+    "Вес (в килограммах)" : {
 
     },
     "Вы уверены, что хотите пропустить презентацию?" : {
+
+    },
+    "Готово" : {
 
     },
     "Дальше" : {
@@ -541,6 +590,9 @@
 
     },
     "Добавить малыша" : {
+
+    },
+    "Добавляем малыша ...." : {
 
     },
     "Добро пожаловать!" : {
@@ -561,13 +613,13 @@
     "Не выбрано" : {
 
     },
-    "Обхват головы" : {
+    "Обхват головы (в сантиметрах)" : {
 
     },
     "Пропустить" : {
 
     },
-    "Рост" : {
+    "Рост (в сантиметрах)" : {
 
     },
     "С функцией консультации ИИ вы получите персонализированные рекомендации на основе статистики сна вашего ребенка. Используя алгоритмы OpenAI, приложение анализирует данные и предлагает решения для улучшения качества сна." : {
