@@ -14,12 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard (scene is UIWindowScene) else { return }
         window = UIWindow(windowScene: scene as! UIWindowScene)
-       // if let window = window {
-         //           router = Router(window: window)
-          //          router?.start()
-          //      }
-        window?.rootViewController = AddBabyViewController()
-        window?.makeKeyAndVisible()
+        if let window = window {
+                    router = Router(window: window)
+                   router?.start()
+               }
+       // window?.rootViewController = LoginViewController()
+       // window?.makeKeyAndVisible()
         //window = UIWindow(frame: UIScreen.main.bounds)
                // window?.rootViewController = UINavigationController(rootViewController: AddBabyViewController())
               //  window?.makeKeyAndVisible()
